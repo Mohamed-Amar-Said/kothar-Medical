@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Kothar Medical</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <img src="https://via.placeholder.com/120x60?text=Logo" alt="Logo">
+    <h1>Kothar Medical</h1>
+    <p>Vente de dispositifs médicaux</p>
+    <a href="index-ar.html" class="lang-btn">العربية</a>
+    <div class="account-buttons">
+      <a href="login.html" class="account-btn">تسجيل الدخول</a>
+      <a href="register.html" class="account-btn">فتح حساب</a>
+      <a href="profile.html" class="account-btn">الملف الشخصي</a>
+    </div>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="#">Accueil</a></li>
+      <li><a href="#about">À propos</a></li>
+      <li><a href="#products">Produits</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section id="about">
+    <h2>À propos</h2>
+    <p>Kothar Medical est une société spécialisée dans la vente d’équipements médicaux. Propriétaire : Mohamed Mahmoud Said.</p>
+  </section>
+
+  <section id="products">
+    <p>العرض ينتهي خلال: <span id="countdown"></span></p>
+<script>
+  const end = new Date("2025-07-10T23:59:59").getTime();
+  const timer = setInterval(function() {
+    const now = new Date().getTime();
+    const diff = end - now;
+    if (diff < 0) {
+      clearInterval(timer);
+      document.getElementById("countdown").innerText = "انتهى العرض!";
+      return;
+    }
+    const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    document.getElementById("countdown").innerText = ${d} يوم ${h} ساعة ${m} دقيقة;
+  }, 1000);
+</script>
+    <input type="text" id="searchBox" placeholder="ابحث عن منتج..." style="width:80%;padding:10px;margin:20px auto;display:block;border:1px solid #ccc;border-radius:8px;">
+<script>
+  document.getElementById("searchBox").addEventListener("input", function() {
+    const val = this.value.toLowerCase();
+    document.querySelectorAll(".product").forEach(p => {
+      p.style.display = p.textContent.toLowerCase().includes(val) ? "inline-block" : "none";
+    });
+  });
+</script>
+    <section id="products">
+  <div class="product">
+    <img src="https://cdn.pixabay.com/photo/2017/01/20/00/30/blood-pressure-1999189_960_720.jpg" alt="جهاز قياس الضغط">
+    <h3>جهاز قياس الضغط</h3>
+    <p>السعر: 1500 أوقية</p>
+    <a href="order.html?product=جهاز قياس الضغط" class="btn">اطلب الآن</a>
+  </div>
+
+  <div class="product">
+    <img src="https://cdn.pixabay.com/photo/2018/03/06/11/00/oximeter-3205933_960_720.jpg" alt="جهاز قياس الأكسجين">
+    <h3>جهاز قياس الأكسجين</h3>
+    <p>السعر: 1200 أوقية</p>
+    <a href="order.html?product=جهاز قياس الأكسجين" class="btn">اطلب الآن</a>
+  </div>
+
+  <div class="product">
+    <img src="https://cdn.pixabay.com/photo/2014/04/03/11/52/thermometer-310519_960_720.png" alt="ميزان حرارة">
+    <h3>ميزان حرارة</h3>
+    <p>السعر: 800 أوقية</p>
+    <a href="order.html?product=ميزان حرارة" class="btn">اطلب الآن</a>
+  </div>
+</section>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>📍 Tevragh-Zeina, Nouakchott, Mauritanie</p>
+    <p>📞 +222 36 31 12 90</p>
+    <p>Moyens de paiement : Bankily, Sedad, Masrivi, Amanty</p>
+  </section>
+
+  <footer>
+    <footer>
+  © 2025 Kothar Medical — تصميم وتطوير: <strong>Abderrahmane Said</strong>
+</footer>
+  </footer>
+  <a href="https://wa.me/22236311290" target="_blank" style="position:fixed;bottom:20px;left:20px;background:#25D366;color:white;padding:12px 20px;border-radius:50px;text-decoration:none;font-weight:bold;box-shadow:0 2px 6px rgba(0,0,0,0.2);z-index:999;">
+  📞 اتصل بنا على واتساب
+</a>
+</body>
+</html>
